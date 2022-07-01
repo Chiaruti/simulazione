@@ -1,15 +1,15 @@
 version: '3.3'
 services:
-  database:
-    image: postgres
-    container_name: 'postgres'
-    restart: always
-    env_file:
-      - ./env/database.env
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres:/var/lin/postgresql/data
+  # database:
+  #   image: postgres
+  #   container_name: 'postgres'
+  #   restart: always
+  #   env_file:
+  #     - ./env/database.env
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres:/var/lin/postgresql/data
 
 
   pgadmin:
@@ -20,8 +20,8 @@ services:
       - ./env/pgadmin.env
     ports:
       - "5050:80"
-    depends_on:
-      - database
+    # depends_on:
+    #   - database
 
 
   backend:
@@ -31,8 +31,8 @@ services:
       context: ./backend
     ports:
       - "80:80"
-    depends_on: 
-      - database
+    # depends_on: 
+    #   - database
 
 
 volumes:
